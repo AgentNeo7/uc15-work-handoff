@@ -1,0 +1,60 @@
+{
+  "id": "UC15",
+  "name": "Work Handoff",
+  "platform": "Salesforce",
+  "scope": "Create durable Task obligations against Case with authenticated owner, freshness preconditions and user-mode DML.",
+  "status": "scoped_native_validated",
+  "publication": "scoped_source_preview_eligible",
+  "requirements": [
+    {
+      "id": "UC15-R01",
+      "acceptance": "Required obligations survive serialization without relying on free-text summaries.",
+      "coverage": "Case-linked Task stores bounded obligation, due date, source modification and authenticated owner.",
+      "blocker": "Full completed work/open questions/evidence work-packet schema not implemented."
+    },
+    {
+      "id": "UC15-R02",
+      "acceptance": "Stale or missing evidence is visible before a decision.",
+      "coverage": "User-mode current Case LastModifiedDate compared against expected stamp before creating Task.",
+      "blocker": "Concurrent writes are not locked; later packet-open freshness checks absent."
+    },
+    {
+      "id": "UC15-R03",
+      "acceptance": "Work cannot silently become ownerless during transfer.",
+      "coverage": "Task OwnerId explicitly set to current authenticated user; invalid/stale requests hold.",
+      "blocker": "Human accept/reject/reassign UI and authenticated role transitions not implemented."
+    },
+    {
+      "id": "UC15-R04",
+      "acceptance": "Previously completed actions are not repeated and obsolete decisions do not execute.",
+      "coverage": "Duplicate Case in same bulk request refused and stale Case does not create obligation.",
+      "blocker": "No cross-transaction idempotency or authorized runtime checkpoint resumption."
+    },
+    {
+      "id": "UC15-R05",
+      "acceptance": "Unknown fields/capabilities are rejected or explicitly downgraded, not discarded silently.",
+      "coverage": "Native tests specify durable Task link/ownership, duplicate and stale holds.",
+      "blocker": "Second process configuration and runtime adapter interoperability pending."
+    }
+  ],
+  "blockers": [
+    "Scoped metadata compilation and unit tests passed; broader integration, denied-user scenarios, actual domain policies and independent evaluation remain incomplete.",
+    "Original acceptance requirements remain partial; owner validation, comparative benchmarks and independent evidence pending.",
+    "Caller owns new Tasks; cross-transaction idempotency, concurrency locking, authenticated accept/reassign UI and native resumption not implemented."
+  ],
+  "native_tests": [
+    "CaseHandoffActionTest"
+  ],
+  "commands": [
+    "npm test",
+    "sf project deploy start --dry-run --target-org eb1a-dev --manifest manifest/package.xml --test-level RunSpecifiedTests --tests CaseHandoffActionTest"
+  ],
+  "full_acceptance_complete": false,
+  "native_validation": {
+    "status": "passed",
+    "mode": "dry-run",
+    "tests_completed": 3,
+    "persisted_deployment": false,
+    "scope": "one Developer org; scoped unit tests and supplied metadata only"
+  }
+}
