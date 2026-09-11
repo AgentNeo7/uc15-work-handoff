@@ -1,0 +1,44 @@
+{
+  "data": {
+    "allowed_reviewers": [
+      "reviewer"
+    ],
+    "completed_steps": [
+      "collect"
+    ],
+    "current_versions": {
+      "doc1": "v1"
+    },
+    "decision": {
+      "accepted": true,
+      "actor": "reviewer",
+      "packet_version": "p1"
+    },
+    "evidence": [
+      {
+        "id": "doc1",
+        "version": "v1"
+      }
+    ],
+    "now": 10,
+    "obligations": [
+      {
+        "deadline": 20,
+        "id": "o1",
+        "owner": "reviewer",
+        "status": "open"
+      }
+    ],
+    "owner": "agent",
+    "packet_version": "p1",
+    "resume_steps": [
+      "review"
+    ],
+    "roles": [
+      "agent",
+      "reviewer"
+    ]
+  },
+  "evidence_class": "simulated",
+  "spec_version": 1
+}

@@ -1,0 +1,20 @@
+{
+  "analysis_completed": true,
+  "authority": "Declared role strings only; no authentication or permission lookup.",
+  "evidence_class": "simulated",
+  "executed": false,
+  "issues": [],
+  "obligations": [
+    {
+      "deadline": 20,
+      "id": "o1",
+      "owner": "reviewer",
+      "status": "open"
+    }
+  ],
+  "owner": "reviewer",
+  "resume_steps": [
+    "review"
+  ],
+  "status": "ready_for_declared_return"
+}

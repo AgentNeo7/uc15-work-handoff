@@ -1,0 +1,10 @@
+[
+  {
+    "title": "LangChain human-in-the-loop",
+    "url": "https://docs.langchain.com/oss/python/langchain/human-in-the-loop",
+    "accessed": "2026-09-11",
+    "evidence_class": "externally_reported",
+    "note": "LangChain documents configurable interruption, persisted state, approval, editing, rejection and resumption. These already exist; portable obligation semantics need separate evidence.",
+    "performance_verified": false
+  }
+]

@@ -1,0 +1,165 @@
+[
+  {
+    "expected": {
+      "executed": false,
+      "issues": [],
+      "owner": "reviewer",
+      "resume_steps": [
+        "review"
+      ],
+      "status": "ready_for_declared_return"
+    },
+    "input": {
+      "data": {
+        "allowed_reviewers": [
+          "reviewer"
+        ],
+        "completed_steps": [
+          "collect"
+        ],
+        "current_versions": {
+          "doc1": "v1"
+        },
+        "decision": {
+          "accepted": true,
+          "actor": "reviewer",
+          "packet_version": "p1"
+        },
+        "evidence": [
+          {
+            "id": "doc1",
+            "version": "v1"
+          }
+        ],
+        "now": 10,
+        "obligations": [
+          {
+            "deadline": 20,
+            "id": "o1",
+            "owner": "reviewer",
+            "status": "open"
+          }
+        ],
+        "owner": "agent",
+        "packet_version": "p1",
+        "resume_steps": [
+          "review"
+        ],
+        "roles": [
+          "agent",
+          "reviewer"
+        ]
+      },
+      "evidence_class": "simulated",
+      "spec_version": 1
+    },
+    "name": "positive"
+  },
+  {
+    "expected": {
+      "issues": [
+        "completed_step_repeated:collect"
+      ],
+      "resume_steps": [],
+      "status": "blocked"
+    },
+    "input": {
+      "data": {
+        "allowed_reviewers": [
+          "reviewer"
+        ],
+        "completed_steps": [
+          "collect"
+        ],
+        "current_versions": {
+          "doc1": "v1"
+        },
+        "decision": {
+          "accepted": true,
+          "actor": "reviewer",
+          "packet_version": "p1"
+        },
+        "evidence": [
+          {
+            "id": "doc1",
+            "version": "v1"
+          }
+        ],
+        "now": 10,
+        "obligations": [
+          {
+            "deadline": 20,
+            "id": "o1",
+            "owner": "reviewer",
+            "status": "open"
+          }
+        ],
+        "owner": "agent",
+        "packet_version": "p1",
+        "resume_steps": [
+          "collect",
+          "review"
+        ],
+        "roles": [
+          "agent",
+          "reviewer"
+        ]
+      },
+      "evidence_class": "simulated",
+      "spec_version": 1
+    },
+    "name": "negative"
+  },
+  {
+    "expected": {
+      "executed": false,
+      "issues": [
+        "missing_evidence_version:doc1"
+      ],
+      "status": "blocked"
+    },
+    "input": {
+      "data": {
+        "allowed_reviewers": [
+          "reviewer"
+        ],
+        "completed_steps": [
+          "collect"
+        ],
+        "current_versions": {},
+        "decision": {
+          "accepted": true,
+          "actor": "reviewer",
+          "packet_version": "p1"
+        },
+        "evidence": [
+          {
+            "id": "doc1",
+            "version": "v1"
+          }
+        ],
+        "now": 10,
+        "obligations": [
+          {
+            "deadline": 20,
+            "id": "o1",
+            "owner": "reviewer",
+            "status": "open"
+          }
+        ],
+        "owner": "agent",
+        "packet_version": "p1",
+        "resume_steps": [
+          "review"
+        ],
+        "roles": [
+          "agent",
+          "reviewer"
+        ]
+      },
+      "evidence_class": "simulated",
+      "spec_version": 1
+    },
+    "name": "unknown"
+  }
+]
